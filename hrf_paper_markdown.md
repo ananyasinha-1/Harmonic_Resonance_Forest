@@ -10,7 +10,7 @@ devanik2005@gmail.com
 
 ## Abstract
 
-We introduce **Harmonic Resonance Fields (HRF)**, a novel physics-informed machine learning algorithm that models classification as wave interference. Unlike traditional geometric approaches, HRF treats training points as damped harmonic oscillators generating class-specific resonance fields. Through systematic evolution across 14 versions, HRF achieves **98.46% accuracy** on the EEG Eye State Corpus (OpenML 1471), surpassing Random Forest (93.09%), XGBoost (92.99%), and Extra Trees (94.49%). Our key innovation is demonstrable **phase invariance**: under extreme temporal jitter (3.0σ phase shift), HRF maintains 100% accuracy while Random Forest degrades to 83.33% (**+16.67% advantage**). We validate HRF across synthetic and real-world datasets, proving its superiority in oscillatory signal domains. This work establishes a new paradigm for physics-informed AI in medical signal processing and time-series classification.
+We introduce **Harmonic Resonance Fields (HRF)**, a novel physics-informed machine learning algorithm that models classification as wave interference. Unlike traditional geometric approaches, HRF treats training points as damped harmonic oscillators generating class-specific resonance fields. Through systematic evolution across 14 versions, HRF achieves **98.46% peak accuracy** on the EEG Eye State Corpus (OpenML 1471), surpassing Random Forest (93.09%), XGBoost (92.99%), and Extra Trees (94.49%). Our key innovation is demonstrable **phase invariance**: under extreme temporal jitter (3.0σ phase shift), HRF maintains 100% accuracy while Random Forest degrades to 83.33% (**+16.67% advantage**). We validate HRF across synthetic and real-world datasets, proving its superiority in oscillatory signal domains. This work establishes a new paradigm for physics-informed AI in medical signal processing and time-series classification.
 
 ---
 
@@ -28,7 +28,7 @@ We propose **Harmonic Resonance Fields (HRF)**, a classifier explicitly grounded
 
 2. **Phase-invariant architecture**: Demonstrated robustness to temporal jitter through frequency energy detection, achieving 16.67% advantage over Random Forest under 3.0σ phase shift.
 
-3. **State-of-the-art medical performance**: 98.46% accuracy on OpenML 1471 (14,980 real EEG samples), exceeding all industry-standard models by 3.97+ percentage points.
+3. **State-of-the-art medical performance**: 98.46% peak accuracy on OpenML 1471 (14,980 real EEG samples), exceeding all industry-standard models by 3.97+ percentage points.
 
 4. **Systematic validation**: Rigorous testing across synthetic (make_moons, sine waves) and real-world (EEG, ECG) datasets, proving generalization beyond toy problems.
 
@@ -200,9 +200,9 @@ All experiments use scikit-learn 1.3+ with identical preprocessing (RobustScaler
 
 **Table 1: Performance on EEG Eye State Corpus (OpenML 1471)**
 
-| Model | Test Accuracy | Gap from HRF |
+| Model | Peak Test Accuracy | Gap from HRF |
 |-------|---------------|--------------|
-| **HRF v14.0** | **98.46%** | **—** |
+| **HRF v14.0** | **98.46% (Peak)** | **—** |
 | Extra Trees | 94.49% | -3.97% |
 | Random Forest | 93.09% | -5.37% |
 | XGBoost | 92.99% | -5.47% |
@@ -299,7 +299,7 @@ Extended jitter range (0.0 to 2.0 seconds) with 9 measurement points:
 | v12.0/HF | Real EEG (1471) | 97.53% | Extra Trees | 94.49% | Bipolar montage |
 | v12.5/HF | Real EEG (1471) | 97.73% | Extra Trees | 94.49% | Refined holography |
 | v13.0/HF | Real EEG (1471) | 98.36% | Extra Trees | 94.49% | Full holography |
-| **v14.0/HF** | **Real EEG (1471)** | **98.46%** | **Extra Trees** | **94.49%** | **Ultimate optimization** |
+| **v14.0/HF** | **Real EEG (1471)** | **98.46% (Peak)** | **Extra Trees** | **94.49%** | **Ultimate optimization** |
 
 **Progression Insights**:
 1. v1.0-v3.0: Concept validation on synthetic data (91→96%)
@@ -317,7 +317,7 @@ Extended jitter range (0.0 to 2.0 seconds) with 9 measurement points:
 | Moons (Synth.) | 98.89% | KNN: 97.78% | +1.11% |
 | Sine Wave | 87.40% | RF: 84.00% | +3.40% |
 | Synth. EEG | 85.56% | RF: 72.22% | +13.34% |
-| Real EEG | **98.46%** | ET: 94.49% | +3.97% |
+| Real EEG | **98.46% (Peak)** | ET: 94.49% | +3.97% |
 
 ---
 
@@ -362,7 +362,7 @@ SVM with Gaussian kernel K(**x**, **x**') = exp(-γ‖**x** - **x**'‖²) achie
 3. **Ensemble efficiency**: Bagging HRF requires no quadratic programming
 4. **Class-specific resonance**: Different ω<sub>c</sub> naturally separate classes; SVM relies on margin maximization
 
-On raw time-domain EEG, HRF (98.46%) significantly outperforms SVM (~93%, not shown in tables), likely because bipolar montage + resonance kernel jointly optimize for differential signals.
+On raw time-domain EEG, HRF (98.46% peak) significantly outperforms SVM (~93%, not shown in tables), likely because bipolar montage + resonance kernel jointly optimize for differential signals.
 
 ### 6.3 Clinical Significance
 
@@ -443,7 +443,7 @@ This would require differentiable kernels and end-to-end training, departing fro
 
 ## 7. Conclusion
 
-We introduced Harmonic Resonance Fields, a physics-informed classifier that models decision boundaries via wave interference. Through 14 iterative versions, HRF achieved 98.46% accuracy on real-world EEG data (14,980 samples), surpassing Random Forest, XGBoost, and Extra Trees by 3.97-5.47 percentage points.
+We introduced Harmonic Resonance Fields, a physics-informed classifier that models decision boundaries via wave interference. Through 14 iterative versions, HRF achieved 98.46% peak accuracy on real-world EEG data (14,980 samples), surpassing Random Forest, XGBoost, and Extra Trees by 3.97-5.47 percentage points.
 
 Our core contribution is **demonstrable phase invariance**: under 3.0σ temporal jitter, HRF maintains 100% accuracy while Random Forest degrades to 83.33%. This 16.67% advantage empirically validates the necessity of frequency-domain reasoning for oscillatory signals.
 

@@ -44,8 +44,8 @@ The breakthrough is the **synthesis**: treating classification as a physical wav
 
 | Model | Test Accuracy | Gap from HRF |
 | :--- | :--- | :--- |
-| **HRF v16.0 (High Var)** | **98.93%** | **—** |
-| **HRF v15.0(Stable)** | **98.84%** | **-0.09%** |
+| **HRF v16.0 (High Var)** | **98.93% (Peak)** | **—** |
+| **HRF v15.0 (Stable)** | **98.84% (Peak)** | **-0.09%** |
 | Extra Trees | 94.49% | -4.35% |
 | Random Forest | 93.09% | -5.75% |
 | XGBoost | 92.99% | -5.85% |
@@ -370,7 +370,7 @@ Where:
 
 ### Key Components
 
-1. **Bipolar Montage Preprocessing:** Differential signal extraction to cancel common-mode noise
+1. **Bipolar Montage Preprocessing:** Differential signal extraction inspired by clinical neurophysiology to cancel common-mode noise and improve signal-to-noise ratio.
 2. **Auto-Evolution:** Grid search over frequency (0.1-50 Hz), damping (0.01-15), and neighbors (3-10)
 3. **Ensemble Method:** Bagging with 60 estimators, max_features=1.0 for full holographic coverage
 4. **Robust Scaling:** Quantile-based normalization (15th-85th percentile) for artifact rejection

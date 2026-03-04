@@ -17,9 +17,9 @@ workflow_path: .github/workflows/dev-log.yml
 This registry formally documents the deterministic state and ongoing evolution of **Harmonic Resonance Fields (HRF)**, a paradigm-shifting physics-informed machine learning architecture. Moving beyond traditional statistical feature-splitting algorithms (e.g., Random Forests, Gradient Boosting), HRF conceptualizes classification as a physical wave interference problem. By evaluating signals across a 26-dimensional unified manifold, the architecture demonstrates unparalleled phase-jitter robustness, superior generalization, and neuro-adaptive capabilities, setting a new benchmark for computational neuroscience and biological signal processing.
 
 ## II. Mathematical Physics Framework
-The foundational theorem of HRF asserts that every data coordinate in a given feature space acts as a source of physical wave potential. The algorithm evaluates the state space using damped harmonic oscillators to generate class-specific resonance energy. The wave potential $\Psi$ at an observation point $x$ induced by a source $p_i$ is governed by:
+The foundational theorem of HRF asserts that every data coordinate in a given feature space acts as a source of physical wave potential. The algorithm evaluates the state space using damped harmonic oscillators to generate class-specific resonance energy. The wave potential $\Psi$ at an observation point $\mathbf{x}$ induced by a source $\mathbf{p}_i$ is governed by:
 
-$$ \Psi(x, p_i) = \exp(-\gamma||x - p_i||^2) \cdot \cos(\omega_c \cdot ||x - p_i|| + \varphi) $$
+$$ \Psi(\mathbf{x}, \mathbf{p}_i) = \exp\left(-\gamma \left\| \mathbf{x} - \mathbf{p}_i \right\|^2\right) \cdot \cos\left(\omega_c \cdot \left\| \mathbf{x} - \mathbf{p}_i \right\| + \varphi\right) $$
 
 ### 2.1 Parameter Definitions
 - **Gaussian Damping** ($\exp(-\gamma r^2)$): Constrains the spatial influence of the resonance wave to local topologies, preventing infinite energy divergence and ensuring manifold stability.
@@ -130,3 +130,6 @@ All experiments, including the discovery of unique evolutionary peaks (Rank 1: 9
 ---
 *Log Entry Finalized by AGI Ecosystem Automata for Devanik21.*
 *Status: Verified Fundamental Research. Target: Turing & Nobel-tier Peer Review.*
+
+## IX. Future Directions
+While the current HRF Titan-26 architecture sets a new standard for biological signal processing, future research will explore its application to multi-modal datasets, such as concurrent EEG-fMRI recordings and high-fidelity audio streams. Additionally, investigating hybrid architectures that integrate physics-informed resonance kernels with deep transformer layers could potentially unlock even more granular levels of neuro-symbolic understanding.
