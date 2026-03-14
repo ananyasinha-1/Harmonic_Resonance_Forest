@@ -7,15 +7,14 @@ currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 16.x    | :white_check_mark: |
+| 15.x    | :white_check_mark: |
+| < 15.x  | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+The Harmonic Resonance Forest project takes the security of its research and codebase seriously.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+If you discover a security vulnerability, please do **not** open a public issue. Instead, report the vulnerability using GitHub's **Private Vulnerability Reporting** feature on this repository.
+
+This ensures that the vulnerability can be addressed and a fix released before it is publicly disclosed. You can expect an initial response within 48 hours.

@@ -1775,6 +1775,11 @@ try:
 except ImportError:
     print("[SYSTEM] XGBoost not found. Using RandomForestClassifier as fallback.")
     class XGBClassifier(RandomForestClassifier):
+        """
+        Fallback implementation of XGBClassifier inheriting from RandomForestClassifier.
+        Ensures script execution resilience in environments where the 'xgboost'
+        package is not installed.
+        """
         def __init__(self, **kwargs):
             # Filter out XGBoost-specific parameters to avoid errors in fallback
             xgb_params = ['eval_metric', 'use_label_encoder', 'logging_level', 'tree_method', 'device']
@@ -1967,6 +1972,10 @@ try:
 except ImportError:
     # Fallback class if XGB not installed
     class XGBClassifier(RandomForestClassifier):
+        """
+        Robust fallback for XGBClassifier using RandomForestClassifier.
+        Filters out XGBoost-specific parameters to maintain compatibility.
+        """
         def __init__(self, **kwargs):
             xgb_params = ['eval_metric', 'use_label_encoder', 'logging_level', 'tree_method', 'device']
             filtered_kwargs = {k: v for k, v in kwargs.items() if k not in xgb_params}
@@ -2271,6 +2280,10 @@ try:
     print("[SYSTEM] XGBoost detected.")
 except ImportError:
     class XGBClassifier(RandomForestClassifier):
+        """
+        Environment-resilient fallback for XGBClassifier.
+        Inherits from RandomForestClassifier and strips non-compatible parameters.
+        """
         def __init__(self, **kwargs):
             xgb_params = ['eval_metric', 'use_label_encoder', 'logging_level', 'tree_method', 'device']
             filtered_kwargs = {k: v for k, v in kwargs.items() if k not in xgb_params}
@@ -2459,6 +2472,10 @@ try:
     print("[SYSTEM] XGBoost detected.")
 except ImportError:
     class XGBClassifier(RandomForestClassifier):
+        """
+        Safety fallback implementation for the XGBoost classifier.
+        Leverages RandomForestClassifier when xgboost is unavailable.
+        """
         def __init__(self, **kwargs):
             xgb_params = ['eval_metric', 'use_label_encoder', 'logging_level', 'tree_method', 'device']
             filtered_kwargs = {k: v for k, v in kwargs.items() if k not in xgb_params}
