@@ -103,7 +103,7 @@ $$ \mathbf{X}_{diff}[i] = \mathbf{X}[i] - \mathbf{X}[i+1] \quad \text{for all } 
 
 This "holographic" representation filters body movement artifacts while preserving signal-specific patterns. We augment with global coherence:
 
-$$ \text{coherence} = \text{Var}(\mathbf{X}) = \frac{1}{d} \sum (\mathbf{X}_i - \bar{\mathbf{X}})^2 $$
+$$ \text{coherence} = \text{Var}(\mathbf{X}) = \frac{1}{d} \sum_{i=1}^{d} (\mathbf{X}_i - \bar{\mathbf{X}})^2 $$
 
 **Final feature vector**: [**X**<sub>raw</sub>, **X**<sub>diff</sub>, coherence]
 
