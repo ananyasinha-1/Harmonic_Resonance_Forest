@@ -75,15 +75,15 @@ For a query point $\mathbf{x} \in \mathbb{R}^d$ and training point $\mathbf{p}_i
 $$ \Psi(\mathbf{x}, \mathbf{p}_i) = \exp\left(-\gamma \left\| \mathbf{x} - \mathbf{p}_i \right\|^2\right) \cdot \cos\left(\omega_c \cdot \left\| \mathbf{x} - \mathbf{p}_i \right\| + \varphi\right) $$
 
 where:
-- **γ > 0**: Damping coefficient (controls spatial locality)
-- **ω<sub>c</sub> = f<sub>base</sub> · (c+1)**: Class-specific frequency
-- **φ**: Phase offset for temporal alignment
+- **$\gamma > 0$**: Damping coefficient (controls spatial locality)
+- **$\omega_c = f_{\text{base}} \cdot (c+1)$**: Class-specific frequency
+- **$\varphi$**: Phase offset for temporal alignment
 
-The Gaussian term exp(-γr²) mimics quantum probability density decay, while the cosine term encodes class identity through frequency. This dual structure enables:
+The Gaussian term $\exp(-\gamma r^2)$ mimics quantum probability density decay, while the cosine term encodes class identity through frequency. This dual structure enables:
 
-1. **Locality control**: High γ creates sharp, localized fields
-2. **Frequency discrimination**: Different ω<sub>c</sub> cause interference patterns
-3. **Phase tolerance**: Energy ΣΨ remains stable under phase shifts
+1. **Locality control**: High $\gamma$ creates sharp, localized fields
+2. **Frequency discrimination**: Different $\omega_c$ cause interference patterns
+3. **Phase tolerance**: Energy $\sum \Psi$ remains stable under phase shifts
 
 #### 3.1.2 Classification Rule
 
@@ -95,21 +95,21 @@ where $N_k(\mathbf{x}, c)$ denotes the $k$ nearest neighbors of class $c$. Spars
 
 $$ \hat{y}(\mathbf{x}) = \text{argmax } E_c(\mathbf{x}) \quad \text{over all classes } c \in \{0, 1, \dots, C-1\} $$
 
-### 3.2 Bipolar Montage Preprocessing
+### 3.2 Holographic Differential (Bipolar Montage) Preprocessing
 
 For multi-channel signals (EEG, EMG), we apply differential transformation to cancel common-mode noise:
 
-$$ \mathbf{X}_{diff}[i] = \mathbf{X}[i] - \mathbf{X}[i+1] \quad \text{for all } i \in \{1, \dots, d-1\} $$
+$$\mathbf{X}_{\text{diff}}[i] = \mathbf{X}[i] - \mathbf{X}[i+1] \quad \text{for all } i \in \{1, \dots, d-1\}$$
 
 This "holographic" representation filters body movement artifacts while preserving signal-specific patterns. We augment with global coherence:
 
-$$ \text{coherence} = \text{Var}(\mathbf{X}) = \frac{1}{d} \sum_{i=1}^{d} (\mathbf{X}_i - \bar{\mathbf{X}})^2 $$
+$$\text{coherence} = \text{Var}(\mathbf{X}) = \frac{1}{d} \sum_{i=1}^{d} (\mathbf{X}_i - \bar{\mathbf{X}})^2$$
 
 **Final feature vector**: [**X**<sub>raw</sub>, **X**<sub>diff</sub>, coherence]
 
-### 3.3 Auto-Evolution Mechanism
+### 3.3 Auto-Evolution Mechanism (G.O.D. Optimizer)
 
-HRF autonomously optimizes physics parameters via grid search on a validation subset (20% of training data):
+HRF, via the **G.O.D. Optimizer** (General Omni Dimensional Optimizer), autonomously optimizes physics parameters via grid search on a validation subset (20% of training data):
 
 #### Algorithm 1: Auto-Evolution (HRF Hyperparameter Optimization)
 
@@ -212,11 +212,9 @@ All experiments use scikit-learn 1.3+ with identical preprocessing (RobustScaler
 
 #### 5.2.1 Phase I: Synthetic Temporal Jitter
 
-We generated 400 EEG-like signals with controlled phase jitter (σ<sub>jitter</sub>):
+We generated 400 EEG-like signals with controlled phase jitter ($\sigma_{\text{jitter}}$):
 
-```
-x(t) = sin(ωt + N(0, σjitter)) + noise
-```
+$$x(t) = \sin(\omega t + \mathcal{N}(0, \sigma_{\text{jitter}})) + \text{noise}$$
 
 **Table 2: Phase Jitter Stress Test (Synthetic EEG)**
 
@@ -322,17 +320,13 @@ Extended jitter range (0.0 to 2.0 seconds) with 9 measurement points:
 
 The key to HRF's robustness lies in its energy-based decision rule. Consider a temporally shifted signal:
 
-```
-x_shifted(t) = x(t - τ)
-```
+$$x_{\text{shifted}}(t) = x(t - \tau)$$
 
-In time domain, decision trees compare feature values at specific time indices t₀. A shift τ moves peaks/troughs to different indices, invalidating learned splits.
+In time domain, decision trees compare feature values at specific time indices $t_0$. A shift $\tau$ moves peaks/troughs to different indices, invalidating learned splits.
 
 In frequency domain (via resonance kernel), energy is computed as:
 
-```
-E ∝ Σᵢ cos(ωrᵢ + φ) ≈ spectral energy
-```
+$$E \propto \sum_i \cos(\omega r_i + \varphi) \approx \text{spectral energy}$$
 
 A phase shift τ manifests as φ' = φ + ωτ. Since we sum over multiple oscillators with varying r<sub>i</sub>, the total energy Σcos(ωr<sub>i</sub> + φ') remains approximately constant (phase averaging). This is analogous to how Fourier magnitude |X(ω)| is shift-invariant while phase ∠X(ω) is not.
 
@@ -340,9 +334,7 @@ A phase shift τ manifests as φ' = φ + ωτ. Since we sum over multiple oscill
 
 Decision trees learn axis-aligned splits:
 
-```
-if x[t₅] > θ then Class 1 else Class 0
-```
+$$\text{if } x[t_5] > \theta \text{ then Class 1 else Class 0}$$
 
 If a peak at t=5 shifts to t=6 due to jitter, the split becomes meaningless. Ensemble methods average many such brittle rules, improving robustness marginally but not fundamentally solving the temporal misalignment problem.
 
@@ -350,10 +342,10 @@ If a peak at t=5 shifts to t=6 due to jitter, the split becomes meaningless. Ens
 
 SVM with Gaussian kernel K(**x**, **x**') = exp(-γ‖**x** - **x**'‖²) achieves phase invariance on spectral features (Table 3, 95.20%). HRF differs critically:
 
-1. **Explicit frequency encoding**: ω<sub>c</sub> per class vs. implicit via support vectors
+1. **Explicit frequency encoding**: $\omega_c$ per class vs. implicit via support vectors
 2. **Direct interpretability**: Hyperparameters map to physical phenomena (Hz, damping)
 3. **Ensemble efficiency**: Bagging HRF requires no quadratic programming
-4. **Class-specific resonance**: Different ω<sub>c</sub> naturally separate classes; SVM relies on margin maximization
+4. **Class-specific resonance**: Different $\omega_c$ naturally separate classes; SVM relies on margin maximization
 
 On raw time-domain EEG, HRF (98.46% peak) significantly outperforms SVM (~93%, not shown in tables), likely because bipolar montage + resonance kernel jointly optimize for differential signals.
 
@@ -363,9 +355,7 @@ On raw time-domain EEG, HRF (98.46% peak) significantly outperforms SVM (~93%, n
 
 With 1.6% false positive rate, HRF meets requirements for continuous EEG monitoring systems. At 100 Hz sampling, this translates to:
 
-```
-False alarms ≈ 1.6% × 100 Hz × 3600 s = 5760 / hour
-```
+$$\text{False alarms} \approx 1.6\% \times 100\,\text{Hz} \times 3600\,\text{s} = 5760 / \text{hour}$$
 
 However, temporal filtering (e.g., requiring 3 consecutive positive predictions) can reduce this to clinically acceptable levels (<100/hour) while maintaining high sensitivity (98.5%).
 
@@ -392,11 +382,9 @@ This is competitive with Random Forest and significantly faster than XGBoost wit
 
 #### 6.4.2 Prediction Time
 
-For *M* test samples:
+For $M$ test samples:
 
-```
-T_pred = O(M · N · d) for distance matrix
-```
+$$T_{\text{pred}} = O(M \cdot N \cdot d) \text{ for distance matrix}$$
 
 On 2,996 test samples: ~2 seconds for 60-estimator forest. Real-time inference (<10ms per sample) is achievable with optimized implementations (Cython, parallelization).
 
