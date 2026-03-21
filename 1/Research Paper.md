@@ -27,15 +27,13 @@ similarity ∝ 1 / distance
 
 HRF introduces a **resonance-modulated kernel**:
 
-```python
-energy(x, X_class, ω) = Σ [damping(d) · cos(ω · d + φ)]
-```
+$$\text{energy}(\mathbf{x}, \mathbf{X}_{\text{class}}, \omega) = \sum [\text{damping}(d) \cdot \cos(\omega \cdot d + \varphi)]$$
 
 Where:
-- `d = ||x - x_i||` (Euclidean distance to training point)
-- `ω = base_freq · (class_id + 1)` (class-specific frequency)
-- `damping(d)` = `exp(-γ · d²)` (Gaussian) or `1/(1 + γ · d)` (Inverse)
-- `φ` = phase shift parameter
+- $d = \left\| \mathbf{x} - \mathbf{x}_i \right\|$ (Euclidean distance to training point)
+- $\omega = \text{base\_freq} \cdot (\text{class\_id} + 1)$ (class-specific frequency)
+- $\text{damping}(d) = \exp(-\gamma \cdot d^2)$ (Gaussian) or $1/(1 + \gamma \cdot d)$ (Inverse)
+- $\varphi$ = phase shift parameter
 
 **Key Insight:** Classification becomes a measurement of which class's "resonance field" has maximum constructive interference at the query point.
 
@@ -165,9 +163,7 @@ HRF belongs to the emerging paradigm of embedding domain knowledge into learning
 ### 2. Kernel Methods Connection
 HRF can be viewed as a **non-stationary kernel** where similarity depends on both distance and class-specific oscillation:
 
-```
-K(x, x_i | class) = exp(-γ · ||x - x_i||²) · cos(ω_class · ||x - x_i||)
-```
+$$K(\mathbf{x}, \mathbf{x}_i | \text{class}) = \exp(-\gamma \cdot \left\| \mathbf{x} - \mathbf{x}_i \right\|^2) \cdot \cos(\omega_{\text{class}} \cdot \left\| \mathbf{x} - \mathbf{x}_i \right\|)$$
 
 This differs from RBF/polynomial kernels by introducing **interference**: nearby points of the same class reinforce, while opposite classes cancel.
 
