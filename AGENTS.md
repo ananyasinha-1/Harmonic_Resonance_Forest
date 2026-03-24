@@ -17,7 +17,8 @@ Maintain these as the primary reference for the stable release:
 
 - **K-Fold Mean Accuracy:** 98.1225% (5-Fold Stratified CV on OpenML 1471).
 - **K-Fold Variance:** ±0.1828%.
-- **Final Test Accuracy (Peak):** 98.8415%.
+- **Peak Test Accuracy:** 98.8415%.
+- **Final Test Accuracy:** 98.5314%.
 - **Clinical Metrics:** Sensitivity 98.07%, Specificity 98.91%, False Alarm Rate 1.09%.
 
 ## Maintenance Principles

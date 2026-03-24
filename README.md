@@ -229,7 +229,7 @@ To prove stability, HRF v15.0 was subjected to a **5-Fold Stratified Cross-Valid
 | :--- | :--- | :--- |
 | **K-Fold Mean Accuracy** | **98.12%** | Proves stability across diverse data subsets. |
 | **K-Fold Variance** | **±0.18%** | Negligible fluctuations; confirms **Zero Overfitting**. |
-| **Final Test Accuracy** | **98.84%** | Exceptional generalization on unseen brainwave data. |
+| **Peak Test Accuracy** | **98.84%** | Exceptional generalization on unseen brainwave data. |
 | **ROC-AUC Score** | **0.9849** | Perfect class separation in the resonance field. |
 | **F1-Score** | **0.9836** | Harmonic balance between Precision (98.6%) and Recall (98.1%). |
 
