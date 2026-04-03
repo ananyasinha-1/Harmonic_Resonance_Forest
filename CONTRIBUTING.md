@@ -176,14 +176,14 @@ git checkout -b feature/your-feature-name
 * scikit-learn
 * Pandas
 * Matplotlib
+* XGBoost
 * CuPy (GPU support)
 * RAPIDS cuML (optional for GPU acceleration)
 
 ## Install Dependencies
 
 ```bash
-pip install -r requirements.txt
-```
+pip install numpy scipy scikit-learn pandas matplotlib xgboost
 
 ---
 
