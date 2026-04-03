@@ -234,14 +234,12 @@ Good documentation should include:
 * Example usage
 * Diagrams if possible
 
-Documentation can be added in:
+Documentation can be added in several places:
 
-```
-docs/
-README.md
-notebooks/
-wiki/
-```
+* The `docs/` directory
+* The main `README.md`
+* Jupyter notebooks with explanations
+* The project's [GitHub Wiki](https://github.com/Devanik21/Harmonic-Resonance-Forest/wiki)
 
 ---
 
