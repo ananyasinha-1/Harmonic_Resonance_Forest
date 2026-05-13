@@ -28,8 +28,8 @@ All components are dynamically orchestrated by the G.O.D. (General Omni Dimensio
                     +--------------------+---------------------+
                                          |
        ---------------------------------------------------------------------------
-       |                |                 |                    |                 |
-       v                v                 v                    v                 v
+       |                |                  |                   |                 |
+       v                v                  v                   v                 v
 
 +-------------+  +----------------+  +---------------+  +-------------+  +----------------+
 | Classical   |  | Geometric &    |  | Harmonic Wave |  | Macro-      |  | Advanced       |
