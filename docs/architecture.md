@@ -1,10 +1,10 @@
 # HRF Titan-26 Architecture
 
-This document describes the structural and computational architecture of the Harmonic Resonance Fields (HRF) system, focusing on the Titan-26 unified manifold and its orchestration via the G.O.D. Optimizer.
+This document proposes the conceptual Titan-26 architecture for future expansion of the HRF system.
 
 ## Overview
 
-HRF Titan-26 is a 26-dimensional unified manifold combining:
+HRF Titan-26 represents a proposed 26-dimensional extension of the current HRF architecture, combining:
 - Classical ML ensembles
 - Geometric/topological models
 - Harmonic wave-based units
@@ -80,9 +80,9 @@ graph TD
 ```
 ## Core Processing Pipeline
 
-The HRF Titan-26 system processes physiological signals through multiple resonance-aware computational layers. Each sector contributes a specialized interpretation of the incoming signal before unified resonance fusion generates the final prediction.
+The proposed Titan-26 architecture is designed to process physiological signals through multiple resonance-aware computational layers. Each sector contributes a specialized interpretation of the incoming signal before unified resonance fusion generates the final prediction.
 
-The processing flow begins with raw EEG signal ingestion, followed by multidimensional optimization through the G.O.D. Optimizer. The optimizer distributes resonance evaluation tasks across five major sectors of the Titan-26 manifold.
+The processing flow begins with raw EEG signal ingestion, followed by multidimensional optimization through the G.O.D. Optimizer. The optimizer conceptually distributes resonance evaluation tasks across five major sectors of the Titan-26 manifold.
 
 ## Sector Responsibilities
 
@@ -95,7 +95,7 @@ Analyzes nonlinear spatial relationships and manifold geometry using SVM, KNN, a
 ### Harmonic Resonance Sector
 Acts as the core wave-processing engine responsible for frequency-aware resonance energy computation and oscillatory signal interpretation.
 
-### Macro-Physical Sector
+### Macro-Physical Modeling Sector
 Applies entropy analysis, quantum abstractions, and gravity-inspired potential mapping to stabilize multidimensional resonance behavior.
 
 ### Advanced Intelligence Sector
