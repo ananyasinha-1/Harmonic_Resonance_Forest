@@ -42,7 +42,7 @@ All components are dynamically orchestrated by the G.O.D. (General Omni Dimensio
 | Sector-A:   |  |  Sector-B :    |  |   Sector-C:   |  |  Sector-D:  |  |  Sector-E:     |
 | Classical & |  | Geometric &    |  |               |  | Macro-      |  |                |
 | boosting    |  | Topological    |  | Harmonic Wave |  | Physical    |  | Advanced       |
-| Topologie   |  | Manifolds      |  | Units         |  | Layers      |  | Architectures  |
+| Topologies  |  | Manifolds      |  | Units         |  | Layers      |  | Architectures  |
 +------+------+  +--------+-------+  +--------+------+  +------+------+  +--------+-------+
        |                 |                  |                 |                  |
        |                 |                  |                 |                  |
@@ -152,18 +152,18 @@ For new contributors, here is how the project is organized:
 
 ```text
 .
-├── 1/                        # Early prototypes and benchmarks
-├── docs/                     # Documentation and Monograph
-├── HRF Codes/                # Applied HRF (EEG, Conference papers)
-├── HRF-Engine/               # Core HRF algorithm implementations
-│   ├── HRF 21D/              # Legacy 21-dimensional version
-│   ├── HRF 26D/              # Stable 26-dimensional version
-│   └── generalized_hrf_v2.py # Current production engine
-├── Research Paper/           # Published papers and whitepapers
-├── README.md                 # Project introduction
-├── CONTRIBUTING.md           # Contribution guidelines
-├── AGENTS.md                 # Guidelines for AI/Agents
-└── SECURITY.md               # Security policy
+├── 1/                           # Early prototypes and benchmarks
+├── docs/                        # Documentation and Monograph
+├── HRF Codes/                   # Applied HRF (EEG, Conference papers)
+├── HRF-Engine/                  # Core HRF algorithm implementations
+│   ├── HRF 21D/                 # Legacy 21-dimensional version
+│   ├── HRF 26D/                 # Stable 26-dimensional version
+│   └── generalized_hrf_v2.ipynb # Current production engine
+├── Research Paper/              # Published papers and whitepapers
+├── README.md                    # Project introduction
+├── CONTRIBUTING.md              # Contribution guidelines
+├── AGENTS.md                    # Guidelines for AI/Agents
+└── SECURITY.md                  # Security policy
 ```
 
 - **HRF-Engine/** is where the core logic resides. If you want to modify the algorithm, look here.
