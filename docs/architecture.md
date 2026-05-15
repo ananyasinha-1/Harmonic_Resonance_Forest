@@ -152,7 +152,7 @@ For new contributors, here is how the project is organized:
 
 ```text
 .
-├── 1/                           # Early prototypes and benchmarks
+├── prototypes/                  # Early prototypes and benchmarks
 ├── docs/                        # Documentation and Monograph
 ├── HRF Codes/                   # Applied HRF (EEG, Conference papers)
 ├── HRF-Engine/                  # Core HRF algorithm implementations
