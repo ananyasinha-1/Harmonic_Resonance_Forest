@@ -10,7 +10,7 @@ The core of the system is the **Titan-26 Manifold**, a 26-dimensional integratio
 
 ## Overview
 
-HRF Titan-26 represents a proposed 26-dimensional extension of the current HRF architecture, combining:
+HRF Titan-26 represents the 26-dimensional extension of the HRF architecture, combining:
 - Classical ML ensembles
 - Geometric/topological models
 - Harmonic wave-based units
