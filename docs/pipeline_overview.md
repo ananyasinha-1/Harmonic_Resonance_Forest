@@ -1,6 +1,6 @@
 # Pipeline Overview — Harmonic Resonance Forest (HRF)
 
-This document describes the end-to-end processing pipeline of the Harmonic Resonance Forest (HRF-26D / HRF-v15+), starting from raw EEG signals and ending in final resonance-based classification.
+This document describes the end-to-end processing pipeline of the Harmonic Resonance Forest (HRF-26D / HRF-v15+), starting from raw input signals and ending in final resonance-based classification.
 
 The system transforms biological signals into a physics-inspired resonance field, evaluates class-wise interference, and produces a final decision through a multi-strategy council ensemble.
 
