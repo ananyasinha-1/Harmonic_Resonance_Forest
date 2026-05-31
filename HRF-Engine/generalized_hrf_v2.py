@@ -217,9 +217,9 @@ class HolographicSoulUnit(BaseEstimator, ClassifierMixin):
             end      = min(i + batch_size, n_test)
             batch_te = X_test[i:end]
 
-            diff  = np.abs(batch_te[:, None, :] - X_train[None, :, :])
-            dists = np.sum(np.power(diff, p_norm), axis=2)
-            dists = np.power(dists, 1.0 / p_norm)
+            dists = np.empty((len(batch_te), len(X_train)), dtype=np.float32)
+            for j, row in enumerate(batch_te):
+                dists[j] = np.sum(np.abs(X_train - row) ** p_norm, axis=1) ** (1.0 / p_norm)
 
             top_k_idx = np.argsort(dists, axis=1)[:, :self.k]
             row_idx   = np.arange(len(batch_te))[:, None]
