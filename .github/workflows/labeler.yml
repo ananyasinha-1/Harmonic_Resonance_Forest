@@ -302,7 +302,7 @@ jobs:
             function classifyLevel(filesCount, additions, deletions) {
               const total = (additions || 0) + (deletions || 0);
 
-              if (filesCount <= 8 && total <= 250) return 'level:intermediate';
+              if (filesCount <= 10 && total <= 100) return 'level:advanced';
               if (filesCount <= 15 && total <= 700) return 'level:advanced';
               return 'level:critical';
             }
